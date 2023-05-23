@@ -22,16 +22,15 @@ plot <- metaprop(data$`V600 mutation prevalence`, data$`Total sample size (n)`, 
 #Model by variable - to create a forest plot into different variables
 
 plot <- metaprop(data$`V600 mutation prevalence`, data$`Total sample size (n)`, data$Author,
-              subset = NULL,
-              sm="PFT",
-              subgroup=data$`Glioma Entity`,
-              incr=0.5,
-              level = 0.95,
-              random=TRUE,
-              title="", 
-              complab="", 
-              outclab="",
-              warn=TRUE)
+         sm="PFT",
+         subgroup=data$`Glioma Entity`,
+         incr=0.5,
+         level = 0.95,
+         random=TRUE,
+         title="", 
+         complab="", 
+         outclab="",
+         warn=TRUE)
               
               
 ## Create forest plot
