@@ -4,7 +4,7 @@ library(tidyverse)
 
 ## Load data extraction file. 
 
-data<-read_xlsx("~/OneDrive - University of Bristol/BRAF/Data/Data Analysis/Data Extraction.xlsx")
+data<-read_xlsx("Data Extraction.xlsx")
 
 ## Filter data to only low-grade glioma.
 
@@ -195,4 +195,4 @@ plot
 
 ## Save the plot
 
-ggsave("../Figures/WFP - Low Grade.png",units = "in", width=12, height=8, dpi=1200)
+ggsave("WFP - Low Grade.png",units = "in", width=12, height=8, dpi=1200)
