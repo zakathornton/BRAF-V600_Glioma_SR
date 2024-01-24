@@ -3,7 +3,7 @@ library(tidyverse)
 library(readxl)
 
 # Load data extraction file. 
-data<-read_xlsx("~/OneDrive - University of Bristol/BRAF/Data/Data Analysis/Data Extraction.xlsx")
+data<-read_xlsx("Data Extraction.xlsx")
 
 # Remove any patients without age group.
 data<-data[data$`Paediatric or Adult (>18)`!="NR",]
