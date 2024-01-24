@@ -28,14 +28,14 @@ paed<-paed[paed$`PFS/OS Median`=="No",]
 adult<-adult[adult$`PFS/OS Median`=="No",]
 
 #Fit the models for the KM analysis - overall survival (months), censored or real ~ high or low-grade
-paed_fit=survfit(Surv(paed$`Overall Survival (OS)`, paed$`OS - Censored (0) or Death (1)`) ~ paed$`Tumour Grade (HG/LG)`)
-adult_fit=survfit(Surv(adult$`Overall Survival (OS)`, adult$`OS - Censored (0) or Death (1)`) ~ adult$`Tumour Grade (HG/LG)`)
+paed_fit<-survfit(Surv(paed$`Overall Survival (OS)`, paed$`OS - Censored (0) or Death (1)`) ~ paed$`Tumour Grade (HG/LG)`)
+adult_fit<-survfit(Surv(adult$`Overall Survival (OS)`, adult$`OS - Censored (0) or Death (1)`) ~ adult$`Tumour Grade (HG/LG)`)
 
 #Combine the models into a variable for plotting
-fit = list(paed_fit, adult_fit)
+fit<-list(paed_fit, adult_fit)
 
 #Plot the KM with a table
-plot=ggsurvplot_combine(fit,data=fit,
+plot<-ggsurvplot_combine(fit,data=fit,
            surv.plot.height=5,
            color="strata",
            linetype = "strata",
