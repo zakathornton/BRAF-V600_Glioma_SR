@@ -35,7 +35,7 @@ adult_fit<-survfit(Surv(adult$`Progression Free Survival (PFS)`, adult$`PFS - Ce
 fit<-list(paed_fit, adult_fit)
 
 #Plot the KM with a table
-plot=ggsurvplot_combine(fit,data=fit,
+plot<-ggsurvplot_combine(fit,data=fit,
            surv.plot.height=5,
            color="strata",
            linetype = "strata",
