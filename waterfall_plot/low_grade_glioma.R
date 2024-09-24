@@ -35,7 +35,7 @@ data$`Therapy Ongoing`<-sub("NR",NA,data$`Therapy Ongoing`)
 data$`Overall Survival (OS)`<-ifelse(data$`OS - Censored (0) or Death (1)`==0,NA,data$`Overall Survival (OS)`)
 data$`Progression Free Survival (PFS)`<-ifelse(data$`PFS - Censored (0) or Real (1)`==0,NA,data$`Progression Free Survival (PFS)`)
 
-# Change to the correct HGG to plot: GG, PA, PXA.
+# Change to the correct HGG to plot: GG, PA, PXA. 
 data<-data[data$`Tumour Type (WFP)`=="PXA",]
 
 # Create a variable for the location of a arrowhead and arrowbody in patients where therapy is ongoing.
@@ -153,4 +153,4 @@ plot<-ggplot(dat=data, mapping=aes(x=TablePosition)) +
 plot
 
 # Save the plot.
-ggsave("~/OneDrive - University of Bristol/BRAF/Figures/WFP - PXA.png",units = "in", width=12, height=8, dpi=1200)
+ggsave("WFP - PXA.png",units = "in", width=12, height=8, dpi=1200)
