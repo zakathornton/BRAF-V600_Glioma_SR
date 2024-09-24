@@ -8,7 +8,7 @@ data<-read_xlsx("Data Extraction.xlsx")
 # Remove any patients without age group.
 data<-data[data$`Paediatric or Adult (>18)`!="NR",]
 
-# Filter data to only low-grade glioma.
+# Filter data to only high-grade glioma.
 data<-data[data$`Tumour Grade (HG/LG)`=="HG",]
 
 # Remove any data where the BRAFi duration is not available, then change to numeric format.
@@ -35,7 +35,7 @@ data$`Therapy Ongoing`<-sub("NR",NA,data$`Therapy Ongoing`)
 data$`Overall Survival (OS)`<-ifelse(data$`OS - Censored (0) or Death (1)`==0,NA,data$`Overall Survival (OS)`)
 data$`Progression Free Survival (PFS)`<-ifelse(data$`PFS - Censored (0) or Real (1)`==0,NA,data$`Progression Free Survival (PFS)`)
 
-# Change to the correct HGG to plot: AA, AGG, aPXA, eGBM, GBM.
+# Change to the correct HGG to plot: AA, AGG, aPXA, eGBM, GBM. In this example, I use GBM.
 data<-data[data$`Tumour Type (WFP)`=="GBM",]
 
 # Create a variable for the location of a arrowhead and arrowbody in patients where therapy is ongoing.
@@ -43,9 +43,9 @@ data$arrowhead<-ifelse((is.na(data$`Therapy Ongoing`)),NA,data$`BRAFi Duration (
 data$arrowbody<-ifelse((is.na(data$`Therapy Ongoing`)),NA,data$`BRAFi Duration (Months)`+0.8)
 
 # Set label positions.
-data$labelpositionPID=rep(-39,times=nrow(data))
-data$labelpositionAge=rep(-31,times=nrow(data))
-data$labelpositionTumourResponse=rep(-23,times=nrow(data))
+data$labelpositionPID=rep(-42,times=nrow(data))
+data$labelpositionAge=rep(-33,times=nrow(data))
+data$labelpositionTumourResponse=rep(-23.5,times=nrow(data))
 data$labelpositionBRAFI=rep(-15,times=nrow(data))
 data$labelpositionMEKI=rep(-5,times=nrow(data))
 
@@ -152,5 +152,5 @@ plot<-ggplot(dat=data, mapping=aes(x=TablePosition)) +
           panel.background = element_blank())
 plot
 
-# Save the plot.
+# Save the plot with appropriate glioma type.
 ggsave("~/OneDrive - University of Bristol/BRAF/Figures/WFP - GBM.png",units = "in", width=12, height=8, dpi=1200)
