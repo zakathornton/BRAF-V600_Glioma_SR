@@ -58,6 +58,6 @@ plot<-ggsurvplot_combine(fit,data=fit,
 plot
 
 #Save the plot 
-png("~/OneDrive - University of Bristol/BRAF/Figures/KM - Adult v Paediatric (OS).png", width=1200, height=800)
+png("KM - Adult v Paediatric (OS).png", width=1200, height=800)
 plot
 dev.off()
